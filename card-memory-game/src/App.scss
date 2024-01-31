@@ -1,0 +1,101 @@
+.header {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    border: 10px solid rgb(35, 187, 83);
+    width: 70%;
+    padding: 150px 150px;
+    animation: 5s infinite glow ;
+  }
+  
+  .header-title {
+    font-size:60px;
+  }
+  
+  .header-btn {
+    background-color: rgb(35, 187, 83);
+    border: none;
+    border-radius: 5px;
+    padding: 10px 50px;
+    color: white;
+    text-decoration: none;
+  }
+  
+  .header-btn:hover {
+    background-color: rgba(35, 187, 83, 0.767);
+    cursor: pointer;
+  }
+  
+  .grid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  
+  .grid-container{
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 10px;
+  }
+  
+//   div[id^="card-"]{
+//     visibility: visible;
+//   }
+
+.showingCard{
+    border: 2px solid green;
+    border-radius: 5px;
+    text-align: center;
+
+    img{
+        padding-top: 10px;
+    }
+}
+
+.faceDownCard {
+    border: 2px solid green;
+    border-radius: 5px;
+    background-color: rgb(35, 187, 83);
+
+    img, h4{
+        visibility: hidden;
+    }
+}
+  
+//   .card {
+//     border: 2px solid green;
+//     border-radius: 5px;
+//     text-align: center;
+//     /* background-color: rgb(35, 187, 83); */
+//   }
+  
+  .card:hover {
+    cursor: pointer;
+  }
+  
+//   .card img {
+//     padding-top: 10px;
+//     visibility:visible;
+//   }
+  
+  
+  
+  
+  @keyframes glow {
+    0% {
+      border-color: rgb(35, 187, 83);
+    }
+    25% {
+      border-color: rgb(23, 173, 242);
+    }
+    75% {
+      border-color: rgb(255, 208, 0);
+    }
+    100% {
+      border-color: rgb(228, 111, 228);
+    }
+  }
