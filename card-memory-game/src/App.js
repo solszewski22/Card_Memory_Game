@@ -7,7 +7,8 @@ import {
 } from 'react-router-dom';
 import Home from './Pages/Home.js';
 import Game from './Pages/Game.js';
-import GameFinished from './Pages/GameFinished.js';
+import Winner from './Pages/Winner.js';
+import Loser from './Pages/Loser.js';
 
 class App extends Component {
   constructor(props){
@@ -38,8 +39,9 @@ class App extends Component {
       <Router>
         <Routes>
           <Route exact path="/" element={<Home headerTitle="Card Memory Game" btnTitle="Play" />} />
-          <Route path="/play" element={<Game cards={this.state.cards}/>} />
-          <Route path="/complete" element={<GameFinished />}/>
+          <Route path="/play" element={<Game cards={this.state.cards} />} />
+          <Route path="/game-over-winner" element={<Winner />}/>
+          <Route path="/game-over-loser" element={<Loser />} />
         </Routes>
       </Router>
     );

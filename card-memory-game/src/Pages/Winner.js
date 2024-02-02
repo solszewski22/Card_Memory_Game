@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
 
-function GameFinished() {
+function Winner() {
     return (
         <div className="body-text">
             <div className="wavy-text">
@@ -14,9 +14,9 @@ function GameFinished() {
                 <span style={{"--i":"7"}}>!</span>
             </div>
             {/* <h1 className="header-title">YOU WIN!</h1> */}
-            <Link className="header-btn" to="/play">Play Again</Link>
+            <Link className="header-btn" to="/">Play Again</Link>
         </div>
     )
 }
 
-export default GameFinished;
+export default Winner;

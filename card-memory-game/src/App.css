@@ -25,6 +25,7 @@
   padding: 10px 50px;
   color: white;
   text-decoration: none;
+  margin: 0px 10px;
 }
 
 .header-btn:hover {
@@ -99,6 +100,18 @@ h4 {
   transition: visibility 0s 0.5s, opacity 0.5s linear;
 }
 
+.timer {
+  font-size: 40px;
+  float: right;
+  padding-top: 20px;
+  padding-right: 20px;
+}
+
+.timer_blink {
+  animation: blinker 1s linear infinite;
+  color: red;
+}
+
 .wavy-text {
   position: relative;
   font-size: 130px;
@@ -131,5 +144,10 @@ h4 {
   }
   20% {
     transform: translateY(-70px);
+  }
+}
+@keyframes blinker {
+  50% {
+    opacity: 0;
   }
 }/*# sourceMappingURL=App.css.map */
