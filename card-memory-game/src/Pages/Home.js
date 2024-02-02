@@ -3,7 +3,7 @@ import {Link} from 'react-router-dom'
 
 function Home(props){
     return (
-        <div className="header">
+        <div className="header body-text">
             <h1 className="header-title">{props.headerTitle}</h1>
             <Link className="header-btn" to="/play">{props.btnTitle}</Link>
         </div>
