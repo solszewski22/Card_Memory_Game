@@ -1,10 +1,11 @@
-import React, { useRef, useState, useEffect } from 'react'
-import { useNavigate } from 'react-router-dom'
+import React, { useRef, useState, useEffect, useContext } from 'react'
+import { GameContext } from './GameContext'
 
 function Timer() {
+    const routeRedirect = useContext(GameContext);
+
     const ref = useRef(null);
     const [timer, setTimer] = useState("00:00");
-    const navigate = useNavigate();
     
     const getTimeRemaining = (e) => {
         const totalTime = Date.parse(e) - Date.parse(new Date());
@@ -24,13 +25,13 @@ function Timer() {
         }
         else{
             setTimeout(() => {
-                navigate('/game-over-loser');
+                routeRedirect.setShouldRedirect('/game-over-loser');
             });
         };
     };
 
     const clearTimer = (e) => {
-        setTimer("01:00");
+        setTimer("00:20");
         if(ref.current) {
             clearInterval(ref.current);
         }
@@ -42,7 +43,7 @@ function Timer() {
 
     const getDeadTime = () => {
         let deadline = new Date();
-        deadline.setSeconds(deadline.getSeconds() + 60);
+        deadline.setSeconds(deadline.getSeconds() + 20);
         return deadline;
     };
 

@@ -1,12 +1,13 @@
-import React, { useState, useEffect } from 'react'
-import { Navigate } from 'react-router-dom'
+import React, { useState, useEffect, useContext } from 'react'
+import { GameContext } from './GameContext';
 
 let numOfPairs = 0;
 
-function Board(props){
+function Board(props){ 
+    const routeRedirect = useContext(GameContext);
+
     const [activeCardOne, setActiveCardOneState] = useState(0);
     const [activeCardTwo, setActiveCardTwoState] = useState(0);
-    const [shouldRedirect, setShouldRedirect] = useState(false);
 
     const handleClick = e => {
         if(activeCardOne === 0){
@@ -40,7 +41,7 @@ function Board(props){
                         document.getElementById(activeCardOne).classList.toggle('fade-out');
                         document.getElementById(activeCardTwo).classList.toggle('fade-out');
                         if(numOfPairs === ((props.cards.length / 2))){
-                            setShouldRedirect(true);
+                            routeRedirect.setShouldRedirect('/game-over-winner');
                         }
                     }, 1000)
                 }
@@ -52,31 +53,29 @@ function Board(props){
 
     useEffect(() => {
         isMatch();
-    }, [activeCardOne, activeCardTwo]);    
+    }, [activeCardOne, activeCardTwo]);
 
     return (
-        <div className="grid">
-            <div className="grid-container">
-                {props.cards.map(card => {
-                    return (
-                        <div className="card" id={card.id} key={card.id} onClick={handleClick}>
-                            <div className="card-inner">
-                                <div className="card-back">
-                                    <img id={`img-${card.id}`} src={`images/${card.imgURL}`} height="50" width="auto" alt="card-img"/>
-                                    <div>
-                                        <h4 id={`title-${card.id}`}><b>{card.title}</b></h4>
+        // <div>
+            <div className="grid">
+                <div className="grid-container">
+                    {props.cards.map(card => {
+                        return (
+                            <div className="card" id={card.id} key={card.id} onClick={handleClick}>
+                                <div className="card-inner">
+                                    <div className="card-back">
+                                        <img id={`img-${card.id}`} src={`images/${card.imgURL}`} height="50" width="auto" alt="card-img"/>
+                                        <div>
+                                            <h4 id={`title-${card.id}`}><b>{card.title}</b></h4>
+                                        </div>
                                     </div>
+                                    <div className="card-front"></div>
                                 </div>
-                                <div className="card-front"></div>
                             </div>
-                            {shouldRedirect ? (
-                                 <Navigate to="/game-over-winner" />
-                             ) : null}
-                        </div>
-                    )
-                })}
+                        )
+                    })}
+                </div>
             </div>
-        </div>
     )
 }
 

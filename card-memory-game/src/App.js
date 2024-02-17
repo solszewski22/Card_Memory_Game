@@ -6,9 +6,9 @@ import {
   Route
 } from 'react-router-dom';
 import Home from './Pages/Home.js';
-import Game from './Pages/Game.js';
 import Winner from './Pages/Winner.js';
 import Loser from './Pages/Loser.js';
+import Game from './Pages/Game.js';
 
 class App extends Component {
   constructor(props){
